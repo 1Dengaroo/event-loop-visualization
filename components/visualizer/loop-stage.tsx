@@ -32,18 +32,16 @@ export function LoopStage({ label, active, color, step }: LoopStageProps) {
   const c = colors[color];
 
   return (
-    <div className="flex flex-col items-center gap-1.5 sm:gap-2">
+    <div className="flex flex-col items-center gap-1.5">
       <div
-        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center font-bold text-lg sm:text-xl transition-all duration-300 ${
-          active
-            ? `${c.activeBg} ${c.text} shadow-md scale-105`
-            : `${c.bg} text-muted-foreground`
+        className={`w-9 h-9 rounded-lg flex items-center justify-center font-semibold text-sm transition-all duration-300 ${
+          active ? `${c.activeBg} ${c.text}` : `${c.bg} text-muted-foreground`
         }`}
       >
         {step}
       </div>
       <span
-        className={`text-[10px] sm:text-xs font-medium ${active ? c.text : "text-muted-foreground"}`}
+        className={`text-[12px] font-medium ${active ? c.text : "text-muted-foreground"}`}
       >
         {label}
       </span>
