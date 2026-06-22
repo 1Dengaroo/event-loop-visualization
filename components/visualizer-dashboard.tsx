@@ -29,7 +29,7 @@ export function VisualizerDashboard() {
 
       <main className="flex-1 lg:min-h-0 p-3 lg:p-4">
         <div className="grid h-full gap-3 lg:gap-4 grid-cols-1 lg:grid-cols-[minmax(320px,0.95fr)_1.45fr_minmax(300px,0.95fr)]">
-          {/* Left — code + transport */}
+          {/* Left: code + transport */}
           <div className="flex flex-col gap-3 lg:gap-4 lg:min-h-0">
             <CodeEditor />
             <StepControls />
@@ -40,13 +40,13 @@ export function VisualizerDashboard() {
             )}
           </div>
 
-          {/* Center — event loop + queues */}
+          {/* Center: event loop + queues */}
           <div className="flex flex-col gap-3 lg:gap-4 lg:min-h-0">
             <EventLoopCycle />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 lg:flex-1 lg:min-h-0 lg:grid-rows-3">
               <QueueCard
                 title="Call Stack"
-                subtitle="LIFO — last in, first out"
+                subtitle="LIFO · last in, first out"
                 items={[...state.callStack].reverse()}
                 color="blue"
                 emptyText="Stack is empty"
@@ -83,7 +83,7 @@ export function VisualizerDashboard() {
             </div>
           </div>
 
-          {/* Right — console + timeline */}
+          {/* Right: console + timeline */}
           <div className="flex flex-col gap-3 lg:gap-4 lg:min-h-0">
             <ConsoleOutput />
             <ExecutionTimeline />

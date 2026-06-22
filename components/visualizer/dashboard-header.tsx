@@ -12,6 +12,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ThemePicker } from "@/components/theme-picker";
@@ -21,9 +22,21 @@ import {
   ExternalLink,
   TriangleAlert,
   Info,
+  Keyboard,
+  Github,
+  Bug,
+  Workflow,
 } from "lucide-react";
 
-type DialogId = "about" | "resources" | "limitations";
+const REPO_URL = "https://github.com/1Dengaroo/js-visualizer";
+
+type DialogId = "about" | "resources" | "limitations" | "shortcuts" | "how";
+
+const SHORTCUTS: { keys: string[]; label: string }[] = [
+  { keys: ["Space"], label: "Play / pause autoplay" },
+  { keys: ["→"], label: "Step forward" },
+  { keys: ["←"], label: "Step backward" },
+];
 
 export function DashboardHeader() {
   const [openDialog, setOpenDialog] = useState<DialogId | null>(null);
@@ -58,12 +71,7 @@ export function DashboardHeader() {
         <ThemePicker />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Info & resources"
-              className="h-9 w-9"
-            >
+            <Button variant="ghost" size="icon" aria-label="Info & resources">
               <Info className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -72,6 +80,10 @@ export function DashboardHeader() {
               <CircleHelp className="w-4 h-4" />
               About
             </DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setOpenDialog("how")}>
+              <Workflow className="w-4 h-4" />
+              How this works
+            </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => setOpenDialog("resources")}>
               <BookMarked className="w-4 h-4" />
               Resources
@@ -79,6 +91,27 @@ export function DashboardHeader() {
             <DropdownMenuItem onSelect={() => setOpenDialog("limitations")}>
               <TriangleAlert className="w-4 h-4" />
               Limitations
+            </DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setOpenDialog("shortcuts")}>
+              <Keyboard className="w-4 h-4" />
+              Keyboard shortcuts
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild>
+              <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4" />
+                View source
+              </a>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a
+                href={`${REPO_URL}/issues/new`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Bug className="w-4 h-4" />
+                Report an issue
+              </a>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -112,6 +145,52 @@ export function DashboardHeader() {
               I built this tool to help me solidify these concepts, as I believe
               that building is the best way to learn.
             </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* How this works */}
+      <Dialog open={openDialog === "how"} onOpenChange={(o) => !o && close()}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle style={{ color: "var(--warm-text)" }}>
+              How this works
+            </DialogTitle>
+          </DialogHeader>
+          <div
+            className="text-sm space-y-3"
+            style={{ color: "var(--warm-muted)" }}
+          >
+            <p>
+              Rather than running your code, this tool statically analyzes it
+              and simulates how the JavaScript event loop would execute it. Your
+              code is parsed into an{" "}
+              <abbr title="Abstract Syntax Tree" className="no-underline">
+                AST
+              </abbr>{" "}
+              with{" "}
+              <code className="text-xs px-1 py-0.5 rounded bg-muted">
+                acorn
+              </code>
+              , then a calculator traverses it to model the call stack, Web
+              APIs, the macrotask and microtask queues, and render frames,
+              producing the steps you can walk through.
+            </p>
+            <p>
+              It&apos;s fully open source. Dig into the implementation on
+              GitHub.
+            </p>
+            <a
+              href={REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 p-3 rounded-md border border-[var(--warm-border)] transition-colors hover:bg-muted"
+              style={{ color: "var(--warm-text)" }}
+            >
+              <Github className="w-4 h-4 shrink-0" />
+              <span className="text-sm font-medium">View the source code</span>
+              <ExternalLink className="w-3 h-3 shrink-0 opacity-50 ml-auto" />
+            </a>
           </div>
         </DialogContent>
       </Dialog>
@@ -155,7 +234,7 @@ export function DashboardHeader() {
                   What the heck is the event loop anyway?
                   <ExternalLink className="w-3 h-3 shrink-0 opacity-50" />
                 </div>
-                <div className="text-xs mt-0.5">Philip Roberts — JSConf EU</div>
+                <div className="text-xs mt-0.5">Philip Roberts · JSConf EU</div>
               </div>
             </a>
             <a
@@ -182,7 +261,7 @@ export function DashboardHeader() {
                   <ExternalLink className="w-3 h-3 shrink-0 opacity-50" />
                 </div>
                 <div className="text-xs mt-0.5">
-                  MDN Web Docs — Official reference
+                  MDN Web Docs · Official reference
                 </div>
               </div>
             </a>
@@ -238,7 +317,7 @@ export function DashboardHeader() {
                   <ExternalLink className="w-3 h-3 shrink-0 opacity-50" />
                 </div>
                 <div className="text-xs mt-0.5">
-                  AST-based event loop analysis — great reference
+                  AST-based event loop analysis · great reference
                 </div>
               </div>
             </a>
@@ -295,6 +374,42 @@ export function DashboardHeader() {
               is designed to work within these constraints to illustrate core
               event loop concepts.
             </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Keyboard shortcuts */}
+      <Dialog
+        open={openDialog === "shortcuts"}
+        onOpenChange={(o) => !o && close()}
+      >
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle style={{ color: "var(--warm-text)" }}>
+              Keyboard shortcuts
+            </DialogTitle>
+          </DialogHeader>
+          <div className="space-y-2">
+            {SHORTCUTS.map(({ keys, label }) => (
+              <div
+                key={label}
+                className="flex items-center justify-between gap-4 text-sm"
+                style={{ color: "var(--warm-muted)" }}
+              >
+                <span>{label}</span>
+                <span className="flex items-center gap-1">
+                  {keys.map((k) => (
+                    <kbd
+                      key={k}
+                      className="min-w-7 px-1.5 py-0.5 text-center text-xs font-medium rounded border border-[var(--warm-border)] bg-muted"
+                      style={{ color: "var(--warm-text)" }}
+                    >
+                      {k}
+                    </kbd>
+                  ))}
+                </span>
+              </div>
+            ))}
           </div>
         </DialogContent>
       </Dialog>

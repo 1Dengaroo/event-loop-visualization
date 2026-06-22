@@ -17,7 +17,6 @@ export function ThemePicker() {
       size="icon"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="h-9 w-9"
     >
       {mounted && isDark ? (
         <Sun className="w-4 h-4" />

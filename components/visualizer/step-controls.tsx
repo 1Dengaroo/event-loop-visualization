@@ -55,13 +55,12 @@ export function StepControls() {
         <div className="flex items-center gap-1.5">
           <Button
             variant="outline"
-            size="icon"
+            size="icon-sm"
             onClick={() => {
               setAutoplay(false);
               stepBackward();
             }}
             disabled={state.currentStep <= 0}
-            className="h-8 w-8 shrink-0"
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
@@ -69,8 +68,7 @@ export function StepControls() {
             onClick={toggleAutoplay}
             disabled={atEnd}
             variant={autoplay ? "outline" : "primary"}
-            size="icon"
-            className="h-8 w-8 shrink-0"
+            size="icon-sm"
           >
             {autoplay ? (
               <Pause className="w-4 h-4" />
@@ -80,32 +78,26 @@ export function StepControls() {
           </Button>
           <Button
             variant="outline"
-            size="icon"
+            size="icon-sm"
             onClick={() => {
               setAutoplay(false);
               stepForward();
             }}
             disabled={atEnd}
-            className="h-8 w-8 shrink-0"
           >
             <ChevronRight className="w-4 h-4" />
           </Button>
 
           <div className="flex gap-1 ml-auto">
             {SPEED_PRESETS.map((preset) => (
-              <button
+              <Button
                 key={preset.ms}
                 onClick={() => setSpeed(preset.ms)}
-                className="h-7 px-2 rounded-md text-xs font-medium transition-colors"
-                style={{
-                  background:
-                    speed === preset.ms ? "var(--accent-blue)" : "var(--muted)",
-                  color:
-                    speed === preset.ms ? "white" : "var(--muted-foreground)",
-                }}
+                size="xs"
+                variant={speed === preset.ms ? "primary" : "secondary"}
               >
                 {preset.label}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -114,7 +106,7 @@ export function StepControls() {
         {isCompleted ? (
           <div className="px-2.5 py-2 rounded-md text-xs flex items-center gap-2 bg-step-push-bg text-step-push-text">
             <Check className="w-3.5 h-3.5 shrink-0" />
-            Done — {steps.length} steps
+            Done · {steps.length} steps
           </div>
         ) : currentStepData ? (
           <div

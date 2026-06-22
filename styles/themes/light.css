@@ -1,20 +1,19 @@
 [data-theme="light"] {
   /* Application Chrome */
   --warm-bg: #fcfcfc;
-  --warm-bg-gradient: #fcfcfc;
   --warm-card: #ffffff;
   --warm-border: #ececec;
   --warm-text: #18181b;
   --warm-muted: #71717a;
 
-  /* Accent Palette — single primary blue, restrained category hues */
+  /* Accent Palette - single primary blue, restrained category hues */
   --accent-blue: #2563eb;
   --accent-purple: #7c3aed;
   --accent-amber: #d97706;
   --accent-emerald: #059669;
   --accent-rose: #e11d48;
 
-  /* Code Editor — adapts to the light surface */
+  /* Code Editor - adapts to the light surface */
   --code-bg: #f7f7f8;
   --code-border: #ececec;
   --code-text: #383a42;
@@ -26,7 +25,6 @@
   --code-punctuation: #6b6f76;
   --code-header-border: #ececec;
   --code-highlight-bg: rgba(37, 99, 235, 0.16);
-  --code-highlight-border: rgba(37, 99, 235, 0.4);
 
   /* Buttons */
   --btn-primary: #2563eb;
@@ -34,8 +32,6 @@
 
   /* Progress */
   --progress-bg: #efefef;
-  --progress-gradient-start: var(--accent-blue);
-  --progress-gradient-end: var(--accent-blue);
 
   /* Step Indicators */
   --step-push-bg: #e7f6ec;
@@ -46,7 +42,7 @@
   --step-neutral-text: #71717a;
   --step-highlight-bg: #f5f7fb;
 
-  /* Queue Colors — neutral surfaces, hue reserved for the dot + count */
+  /* Queue Colors - neutral surfaces, hue reserved for the dot + count */
   --queue-blue-bg: rgba(37, 99, 235, 0.08);
   --queue-blue-border: #ececec;
   --queue-blue-text: #2563eb;
@@ -82,7 +78,7 @@
   --queue-emerald-item-bg: #fafafa;
   --queue-emerald-item-border: #efefef;
 
-  /* Loop Stage Colors — neutral inactive, hue tint when active */
+  /* Loop Stage Colors - neutral inactive, hue tint when active */
   --loop-blue-bg: #f3f3f4;
   --loop-blue-active-bg: rgba(37, 99, 235, 0.12);
   --loop-blue-text: #2563eb;
@@ -108,11 +104,6 @@
 
   /* Console */
   --console-prompt: #a0a1a7;
-
-  /* Traffic Lights (unused in minimal UI, retained for contract) */
-  --traffic-red: #d4d4d4;
-  --traffic-yellow: #d4d4d4;
-  --traffic-green: #d4d4d4;
 
   /* Foundation (shadcn) */
   --background: #fcfcfc;

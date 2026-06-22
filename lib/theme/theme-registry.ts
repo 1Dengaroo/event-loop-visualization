@@ -22,8 +22,6 @@ export const themes: ThemeDefinition[] = [
 
 export const themeIds = themes.map((t) => t.id);
 
-export const darkThemeIds = themes.filter((t) => t.isDark).map((t) => t.id);
-
 export function getThemeDefinition(id: string): ThemeDefinition | undefined {
   return themes.find((t) => t.id === id);
 }

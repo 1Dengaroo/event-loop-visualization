@@ -14,9 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Event Loop Visualizer — JavaScript, step by step",
+  title: "Event Loop Visualizer: JavaScript, step by step",
   description:
-    "Watch JavaScript execute step by step — understand the event loop, call stack, microtasks, and task queue visually.",
+    "Watch JavaScript execute step by step. Understand the event loop, call stack, microtasks, and task queue visually.",
 };
 
 export default function RootLayout({

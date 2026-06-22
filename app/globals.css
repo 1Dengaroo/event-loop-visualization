@@ -167,11 +167,6 @@
   /* Console colors */
   --color-console-prompt: var(--console-prompt);
 
-  /* Traffic light colors */
-  --color-traffic-red: var(--traffic-red);
-  --color-traffic-yellow: var(--traffic-yellow);
-  --color-traffic-green: var(--traffic-green);
-
   --font-sans:
     var(--font-sans-app), Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-app), "JetBrains Mono", ui-monospace, monospace;

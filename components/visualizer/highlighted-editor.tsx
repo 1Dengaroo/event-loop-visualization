@@ -195,7 +195,7 @@ function highlightCode(
           : `<span class="token-${token.type}">${escaped}</span>`;
       html += `<mark class="code-highlight">${inner}</mark>`;
     }
-    // Partially overlapping — split the token
+    // Partially overlapping: split the token
     else {
       const parts: { text: string; highlighted: boolean }[] = [];
       const val = token.value;

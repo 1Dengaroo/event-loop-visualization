@@ -72,7 +72,7 @@ export function CodeEditor() {
             onClick={parseCode}
             variant="primary"
             disabled={isRunning}
-            className="flex-1 h-9 font-medium"
+            className="flex-1"
           >
             {isRunning ? (
               <span className="flex items-center gap-1">
@@ -87,11 +87,7 @@ export function CodeEditor() {
               </>
             )}
           </Button>
-          <Button
-            variant="outline"
-            onClick={reset}
-            className="h-9 px-4 font-medium"
-          >
+          <Button variant="outline" onClick={reset}>
             <RotateCcw className="w-4 h-4 mr-1.5" />
             Reset
           </Button>

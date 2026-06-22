@@ -1,20 +1,19 @@
 [data-theme="dark"] {
   /* Application Chrome */
   --warm-bg: #0a0a0a;
-  --warm-bg-gradient: #0a0a0a;
   --warm-card: #161616;
   --warm-border: #262626;
   --warm-text: #fafafa;
   --warm-muted: #a1a1aa;
 
-  /* Accent Palette — single primary blue, restrained category hues */
+  /* Accent Palette - single primary blue, restrained category hues */
   --accent-blue: #3b82f6;
   --accent-purple: #a78bfa;
   --accent-amber: #f59e0b;
   --accent-emerald: #10b981;
   --accent-rose: #fb7185;
 
-  /* Code Editor — adapts to the dark surface */
+  /* Code Editor - adapts to the dark surface */
   --code-bg: #131313;
   --code-border: #262626;
   --code-text: #e4e4e7;
@@ -26,7 +25,6 @@
   --code-punctuation: #9ca3af;
   --code-header-border: #262626;
   --code-highlight-bg: rgba(59, 130, 246, 0.28);
-  --code-highlight-border: rgba(59, 130, 246, 0.6);
 
   /* Buttons */
   --btn-primary: #3b82f6;
@@ -34,8 +32,6 @@
 
   /* Progress */
   --progress-bg: #262626;
-  --progress-gradient-start: var(--accent-blue);
-  --progress-gradient-end: var(--accent-blue);
 
   /* Step Indicators */
   --step-push-bg: rgba(16, 185, 129, 0.16);
@@ -46,7 +42,7 @@
   --step-neutral-text: #a1a1aa;
   --step-highlight-bg: #1d1d1d;
 
-  /* Queue Colors — neutral surfaces, hue reserved for the dot + count */
+  /* Queue Colors - neutral surfaces, hue reserved for the dot + count */
   --queue-blue-bg: rgba(59, 130, 246, 0.14);
   --queue-blue-border: #262626;
   --queue-blue-text: #60a5fa;
@@ -82,7 +78,7 @@
   --queue-emerald-item-bg: #1c1c1c;
   --queue-emerald-item-border: #2a2a2a;
 
-  /* Loop Stage Colors — neutral inactive, hue tint when active */
+  /* Loop Stage Colors - neutral inactive, hue tint when active */
   --loop-blue-bg: #1c1c1c;
   --loop-blue-active-bg: rgba(59, 130, 246, 0.2);
   --loop-blue-text: #60a5fa;
@@ -108,11 +104,6 @@
 
   /* Console */
   --console-prompt: #6b7280;
-
-  /* Traffic Lights (unused in minimal UI, retained for contract) */
-  --traffic-red: #3f3f46;
-  --traffic-yellow: #3f3f46;
-  --traffic-green: #3f3f46;
 
   /* Foundation (shadcn) */
   --background: #0a0a0a;
@@ -160,7 +151,7 @@
   --info: #3b82f6;
   --info-foreground: #0a0a0a;
 
-  /* Shadow Overrides — kept very subtle for a flat, minimal surface */
+  /* Shadow Overrides - kept very subtle for a flat, minimal surface */
   --shadow-blur: 8px;
   --shadow-opacity: 0.4;
   --shadow-2xs: 0px 1px 2px 0px hsl(0 0% 0% / 0.3);
