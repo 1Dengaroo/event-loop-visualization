@@ -9,14 +9,14 @@ export interface ThemeDefinition {
 
 export const themes: ThemeDefinition[] = [
   {
-    id: "dark",
-    name: "Dark",
-    isDark: true,
-  },
-  {
     id: "light",
     name: "Light",
     isDark: false,
+  },
+  {
+    id: "dark",
+    name: "Dark",
+    isDark: true,
   },
 ];
 

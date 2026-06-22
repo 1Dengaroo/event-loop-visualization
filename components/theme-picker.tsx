@@ -1,40 +1,28 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@/lib/theme/use-theme";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
-import { Moon, Sun } from "lucide-react";
-
-const emptySubscribe = () => () => {};
-const getTrue = () => true;
-const getFalse = () => false;
+import { Button } from "@/components/ui/button";
+import { Sun, Moon } from "lucide-react";
 
 export function ThemePicker() {
   const { isDark, setTheme } = useTheme();
-  const mounted = useSyncExternalStore(emptySubscribe, getTrue, getFalse);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <button
-          className="h-9 w-9 rounded-lg flex items-center justify-center transition-colors hover:bg-[var(--muted)]"
-          style={{ color: "var(--warm-muted)" }}
-          onClick={() => setTheme(isDark ? "light" : "dark")}
-        >
-          {mounted && isDark ? (
-            <Sun className="w-4 h-4" />
-          ) : (
-            <Moon className="w-4 h-4" />
-          )}
-        </button>
-      </TooltipTrigger>
-      <TooltipContent side="bottom">
-        {mounted && isDark ? "Light mode" : "Dark mode"}
-      </TooltipContent>
-    </Tooltip>
+    <Button
+      variant="outline"
+      size="icon"
+      aria-label="Toggle theme"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+    >
+      {mounted && isDark ? (
+        <Sun className="w-4 h-4" />
+      ) : (
+        <Moon className="w-4 h-4" />
+      )}
+    </Button>
   );
 }

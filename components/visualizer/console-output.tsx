@@ -15,37 +15,28 @@ export function ConsoleOutput() {
   }, [consoleLogs.length]);
 
   return (
-    <Card className="border-t-[3px] border-t-queue-emerald-text overflow-hidden">
-      <CardHeader className="pb-2 pt-3 sm:pt-4">
-        <CardTitle className="text-xs">
-          <div className="w-6 h-6 rounded-md bg-queue-emerald-icon-bg flex items-center justify-center">
-            <Terminal className="w-3.5 h-3.5 text-queue-emerald-text" />
-          </div>
-          <span className="text-sm font-semibold">Console</span>
-          {consoleLogs.length > 0 && (
-            <span className="bg-queue-emerald-bg text-queue-emerald-text text-xs font-bold px-2 py-0.5 rounded-md tabular-nums ml-auto">
-              {consoleLogs.length}
-            </span>
-          )}
+    <Card className="flex flex-col min-h-[200px] lg:flex-1 lg:min-h-0">
+      <CardHeader className="pb-2">
+        <CardTitle>
+          <Terminal className="w-4 h-4 text-muted-foreground" />
+          Console
         </CardTitle>
       </CardHeader>
-      <CardContent className="pb-3 sm:pb-4 pt-0">
+      <CardContent className="flex-1 min-h-0 flex flex-col pt-0">
         <div
           ref={consoleRef}
-          className="rounded-lg p-3 h-[160px] sm:h-[200px] overflow-auto bg-code-bg border border-code-border"
-          style={{ fontFamily: "var(--font-source-code), monospace" }}
+          className="rounded-md p-3 flex-1 min-h-0 overflow-auto bg-code-bg border border-code-border text-[14px]"
+          style={{ fontFamily: "var(--font-mono)" }}
         >
           {consoleLogs.length === 0 ? (
-            <span className="text-muted-foreground text-xs">
-              {"// Output appears here..."}
+            <span className="text-muted-foreground">
+              // Output appears here…
             </span>
           ) : (
             consoleLogs.map((log, i) => (
-              <div key={i} className="flex items-start gap-2 py-1">
-                <span className="text-console-prompt text-xs select-none shrink-0 tabular-nums w-4 text-right opacity-50">
-                  {i + 1}
-                </span>
-                <span className="text-code-text text-xs">{log}</span>
+              <div key={i} className="flex items-start gap-2 py-0.5">
+                <span className="text-console-prompt">›</span>
+                <span className="text-code-text break-all">{log}</span>
               </div>
             ))
           )}

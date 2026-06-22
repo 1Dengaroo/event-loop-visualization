@@ -62,7 +62,6 @@
  * ═══════════════════════════════════════
  *
  * --warm-bg                 App background (flat)
- * --warm-bg-gradient        App background (gradient)
  * --warm-card               Card surface
  * --warm-border             Subtle borders
  * --warm-text               Primary text
@@ -101,8 +100,6 @@
  * ═══════════════════════════════════════
  *
  * --progress-bg             Progress bar background
- * --progress-gradient-start Progress gradient start
- * --progress-gradient-end   Progress gradient end
  *
  * ═══════════════════════════════════════
  * STEP INDICATORS
@@ -149,13 +146,10 @@
  * --flow-arrow-active        Active arrow
  *
  * ═══════════════════════════════════════
- * CONSOLE & TRAFFIC
+ * CONSOLE
  * ═══════════════════════════════════════
  *
  * --console-prompt           Console prompt color
- * --traffic-red              Traffic light red
- * --traffic-yellow           Traffic light yellow
- * --traffic-green            Traffic light green
  *
  * ═══════════════════════════════════════
  * SHADOW OVERRIDES (dark themes)

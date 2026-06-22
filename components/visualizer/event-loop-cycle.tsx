@@ -4,29 +4,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useVisualizerStore } from "@/hooks/use-visualizer";
 import { LoopStage } from "./loop-stage";
 import { FlowConnector } from "./flow-connector";
-import { RefreshCw } from "lucide-react";
 
 export function EventLoopCycle() {
   const state = useVisualizerStore((s) => s.state);
 
   return (
-    <Card>
+    <Card className="shrink-0">
       <CardHeader className="pb-2">
-        <CardTitle>
-          <div
-            className="w-6 h-6 rounded-md flex items-center justify-center"
-            style={{
-              background: "var(--loop-purple-bg)",
-              color: "var(--loop-purple-text)",
-            }}
-          >
-            <RefreshCw className="w-3.5 h-3.5" />
-          </div>
-          <span className="text-sm font-semibold">Event Loop Cycle</span>
-        </CardTitle>
+        <CardTitle>Event Loop</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="flex items-center justify-between py-2 sm:py-3 px-1 sm:px-4">
+      <CardContent className="pt-0">
+        <div className="flex items-center justify-between">
           <LoopStage
             label="Call Stack"
             active={state.callStack.length > 0}
